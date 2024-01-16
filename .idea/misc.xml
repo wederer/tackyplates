@@ -1,0 +1,9 @@
+<project version="4">
+  <component name="Black">
+    <option name="sdkName" value="Poetry (tackyplates)" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" project-jdk-name="Poetry (tackyplates)" project-jdk-type="Python SDK" />
+  <component name="PyPackaging">
+    <option name="earlyReleasesAsUpgrades" value="true" />
+  </component>
+</project>

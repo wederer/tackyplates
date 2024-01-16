@@ -1,0 +1,10 @@
+# monit config to check nginx
+# symlink this to /etc/monit/conf-enabled via
+# sudo ln -s /home/pi/tackyplates-frontend/nginx-monit /etc/monit/conf-enabled/nginx
+check process nginx with pidfile /run/nginx.pid
+    start program = "/usr/sbin/service nginx start" with timeout 60 seconds
+    stop program  = "/usr/sbin/service nginx stop"
+    if failed host localhost port 80 protocol HTTP for 2 cycles then restart
+	if failed host localhost port 8000
+	        protocol HTTP request "/api/heartbeat" for 2 cycles then restart
+

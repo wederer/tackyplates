@@ -1,0 +1,25 @@
+# sudo ln -s /home/pi/tackyplates-backend/gunicorn.service /etc/systemd/system/gunicorn.service
+# sudo systemctl enable --now gunicorn.service
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+Type=notify
+# the specific user that our service will run as
+User=pi
+Group=pi
+# another option for an even more restricted service is
+# DynamicUser=yes
+# see http://0pointer.net/blog/dynamic-users-with-systemd.html
+RuntimeDirectory=gunicorn
+WorkingDirectory=/home/pi/tackyplates-backend
+ExecStart=/home/pi/tackyplates-backend/venv/bin/gunicorn tackyplates.wsgi --access-logfile /home/pi/tackyplates-backend/logs/gunicorn.access.log --error-logfile /home/pi/tackyplates-backend/logs/gunicorn.error.log
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

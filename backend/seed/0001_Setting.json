@@ -1,0 +1,12 @@
+[
+{
+    "model": "main.setting",
+    "pk": 1,
+    "fields": {
+        "created_on": "2022-04-16T09:28:46.837Z",
+        "modified_on": "2022-04-16T09:28:46.837Z",
+        "board_width": 50.0,
+        "measurement_width": 2.5
+    }
+}
+]

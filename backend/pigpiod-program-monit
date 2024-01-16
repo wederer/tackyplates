@@ -1,0 +1,8 @@
+# monit config to check pigpiod
+# symlink this to /etc/monit/conf-enabled via
+# sudo ln -s /home/pi/tackyplates-backend/pigpiod-program-monit /etc/monit/conf-enabled/pigpiod-program
+check program pigpiod-pigs-t with path "/usr/local/bin/pigs t" 
+    start program = "/bin/systemctl start pigpiod"
+    stop program  = "/bin/systemctl stop pigpiod"
+    if status != 0 for 3 cycles then restart
+

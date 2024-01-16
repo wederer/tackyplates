@@ -1,0 +1,27 @@
+# nginx configuration to serve tackyplates frontend
+# symlink this to nginx folder via
+# sudo ln -s /home/pi/tackyplates-frontend/nginx-site-config /etc/nginx/sites-enabled/tackyplates
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /home/pi/tackyplates-frontend/build;
+
+
+	server_name _;
+
+	location / {
+		index index.html;
+		# First attempt to serve request as file, then
+		# as directory, then fall back to index.html
+		try_files $uri $uri/ $uri.html /index.html;
+	}
+
+	# Don't forget to chmod 777 the export dir
+	# !!!chmod 777!!!
+	location /export {
+		root /home/pi/tackyplates-backend;
+	}
+}
+
+

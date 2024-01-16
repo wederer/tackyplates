@@ -1,0 +1,20 @@
+services:
+ backend:
+  image: ghcr.io/tackyplates/tackyplates-backend-raspberry:latest
+  environment:
+    - MOCK
+  build:
+    context: .
+    network: host
+  privileged: true
+  ports:
+   - "8000:8000"
+  volumes:
+   - ./db:/app/db
+ frontend:
+  build:
+    context: ../tackyplates-frontend
+    network: host
+  ports:
+   - "80:80"
+

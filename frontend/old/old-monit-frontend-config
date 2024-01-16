@@ -1,0 +1,10 @@
+check host frontend with address 127.0.0.1
+	# start program = "/home/pi/tackyplates-frontend/start.sh"
+	start program = "/usr/bin/yarn --cwd /home/pi/tackyplates-frontend dev >> /home/pi/tackyplates-frontend/start_log.txt" 
+		as uid pi and gid pi
+		with timeout 60 seconds
+	stop program = "/usr/bin/killall node"
+	if failed
+		port 3000
+		protocol http
+	then RESTART

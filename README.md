@@ -1,7 +1,7 @@
 # TackyPlates - a measurement prototype built on RPI4
 
-This is a project that was developed by @mj-hofmann and @wederer.
-@mj-hofmann provided domain knowledge and hardware control and @wederer was responsible for frontend/backend and deployment.
+This is a project that was developed by [Matthias Hofmann](https://github.com/mj-hofmann) and [Wolfgang Ederer](https://github.com/wederer).
+[@mj-hofmann](https://github.com/mj-hofmann) provided domain knowledge and hardware control and [Wolfgang Ederer](https://github.com/wederer) was responsible for frontend/backend and deployment.
 
 The prototype was fully functional and used to measure how quick adhesive solutions dried out by rolling a ball onto a "tacky plate" that had the adhesive solution applied to.
 
@@ -11,7 +11,7 @@ The prototype was fully functional and used to measure how quick adhesive soluti
 
 ## Architecture
 
-// TODO image
+// TODO add image of aperature
 
 Small billiard balls are released via a push/pull solenoid. In order for the balls to stay "on-track" a ball guide was lowered via a servo. The ball track itself was moved via a stepper motor and guided via a threaded spindle. How far the ball travelled was measured via a ultrasonic distance sensor (HC-SR04). Each measurement was written into the sqlite3 database.
 
